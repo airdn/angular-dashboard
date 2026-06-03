@@ -1,0 +1,27 @@
+.header-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 8px;
+}
+
+.logo-icon {
+    color: #ffc107;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.spacer {
+    flex: 1;
+}

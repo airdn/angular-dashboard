@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 
 import { DashboardPageComponent } from './features/dashboard/dashboard-page/dashboard-page.component';
-// features/pages/dashboard/dashboard.component
 
 export const routes: Routes = [
     {
@@ -9,9 +8,15 @@ export const routes: Routes = [
         redirectTo: '/dashboard',
         pathMatch: 'full'
     },
+    // {
+    //     path: 'dashboard',
+    //     component: DashboardPageComponent,
+    //     title: 'Dashboard Page'
+    // },
     {
         path: 'dashboard',
-        component: DashboardPageComponent,
+        loadComponent: () => import('./features/dashboard/dashboard-page/dashboard-page.component')
+            .then(m => m.DashboardPageComponent),
         title: 'Dashboard Page'
     },
 ];

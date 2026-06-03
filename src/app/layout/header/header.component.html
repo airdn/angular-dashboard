@@ -1,1 +1,39 @@
-<p>header works!</p>
+<mat-toolbar color="primary" class="header-toolbar">
+    <button mat-icon-button (click)="onClick()">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <div class="logo">
+        <mat-icon class="logo-icon">solar_power</mat-icon>
+        <span class="logo-text">Angular Dashboard</span>
+    </div>
+
+    <span class="spacer"></span>
+
+    <button mat-icon-button matBadge="3" matBadgeColor="warn" matBadgeSize="small">
+        <mat-icon>notifications</mat-icon>
+    </button>
+
+    <button mat-icon-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>account_circle</mat-icon>
+    </button>
+
+    <mat-menu #userMenu="matMenu">
+        <button mat-menu-item>
+            <mat-icon>person</mat-icon>
+            <span>Мой профиль</span>
+        </button>
+
+        <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Конфигурация</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-menu-item>
+            <mat-icon>logout</mat-icon>
+            <span>Выйти</span>
+        </button>
+    </mat-menu>
+</mat-toolbar>
