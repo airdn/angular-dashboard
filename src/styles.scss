@@ -1,1 +1,135 @@
-/* You can add global styles to this file, and also import other style files */
+// ========================================
+// Angular Dashboard - Global Styles
+// ========================================
+
+@use '@angular/material' as mat;
+@use 'styles/variables' as vars;
+
+// ========================================
+// Angular Material Theme Configuration
+// ========================================
+html {
+    height: 100%;
+    @include mat.theme((
+        color: (
+            primary: mat.$azure-palette,
+            tertiary: mat.$orange-palette,
+        ),
+        typography: Roboto,
+        density: 0,
+    ));
+}
+
+body {
+    color-scheme: light;
+    background-color: var(--mat-sys-surface);
+    color: var(--mat-sys-on-surface);
+    font: var(--mat-sys-body-medium);
+    margin: 0;
+    height: 100%;
+}
+
+// ========================================
+// Global Typography
+// ========================================
+h1, h2, h3, h4, h5, h6 {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    color: vars.$text-primary;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1rem; }
+
+p {
+    line-height: 1.6;
+    color: vars.$text-secondary;
+}
+
+a {
+    color: vars.$solar-blue;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// ========================================
+// Utility Classes
+// ========================================
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-muted { color: vars.$text-secondary; }
+
+.mt-1 { margin-top: vars.$spacing-sm; }
+.mt-2 { margin-top: vars.$spacing-md; }
+.mt-3 { margin-top: vars.$spacing-lg; }
+.mt-4 { margin-top: vars.$spacing-xl; }
+
+.mb-1 { margin-bottom: vars.$spacing-sm; }
+.mb-2 { margin-bottom: vars.$spacing-md; }
+.mb-3 { margin-bottom: vars.$spacing-lg; }
+.mb-4 { margin-bottom: vars.$spacing-xl; }
+
+.p-1 { padding: vars.$spacing-sm; }
+.p-2 { padding: vars.$spacing-md; }
+.p-3 { padding: vars.$spacing-lg; }
+.p-4 { padding: vars.$spacing-xl; }
+
+// ========================================
+// Status Colors
+// ========================================
+.status-active { color: vars.$status-active; }
+.status-maintenance { color: vars.$status-maintenance; }
+.status-inactive { color: vars.$status-inactive; }
+.status-warning { color: vars.$status-warning; }
+
+.bg-status-active { background-color: rgba(vars.$status-active, 0.1); }
+.bg-status-maintenance { background-color: rgba(vars.$status-maintenance, 0.1); }
+.bg-status-inactive { background-color: rgba(vars.$status-inactive, 0.1); }
+.bg-status-warning { background-color: rgba(vars.$status-warning, 0.1); }
+
+// ========================================
+// Scrollbar Styling
+// ========================================
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: vars.$gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+    background: vars.$gray-400;
+    border-radius: vars.$radius-sm;
+
+    &:hover {
+        background: vars.$gray-500;
+    }
+}
+
+// ========================================
+// Angular Material Overrides
+// ========================================
+.mat-mdc-card {
+    border-radius: vars.$radius-md !important;
+}
+
+.mat-mdc-button,
+.mat-mdc-outlined-button,
+.mat-mdc-raised-button {
+    border-radius: vars.$radius-sm !important;
+}
+
+// Gradient for icons
+.solar-gradient {
+    background: linear-gradient(135deg, vars.$solar-orange, vars.$solar-yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
