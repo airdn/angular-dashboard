@@ -57,3 +57,44 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Architect Pattern Description
+
+Feature-Based Modular Architecture
+```
+src/app/
+│
+├── core/                          # Сервисы-синглтоны
+│   ├── services/
+│   │   ├── api.service.ts         # HttpClient обертка
+│   │   ├── auth.service.ts        # Авторизация
+│   │   └── sidebar.service.ts     # Управление состоянием сайдбара
+│   └── guards/                    # Защита маршрутов
+│
+├── layout/                        # Оболочка приложения
+│   ├── header/                    # Шапка (только UI, без логики)
+│   ├── sidebar/                   # Сайдбар (только UI)
+│   └── main-layout/               # Обертка, куда вставляются страницы
+│
+├── features/                      # Фичи (то, что меняется при клике по сайдбару)
+│   │
+│   ├── dashboard/                 # Фича: дашборд
+│   │   ├── pages/                 # Smart компоненты
+│   │   │   └── dashboard-page/
+│   │   ├── components/            # Глупые компоненты только для дашборда
+│   │   │   └── metric-card/
+│   │   └── services/              # Сервисы только для дашборда
+│   │       └── dashboard.service.ts
+│   │
+│   └── products/                  # Фича: товары
+│
+├── shared/                        # Глупые компоненты (UI-kit)
+│   └── ui/
+│       ├── button/
+│       ├── input/
+│       ├── card/                  # Базовая карточка без логики
+│       └── spinner/
+│
+├── app.routes.ts                  # Главный роутинг
+└── app.component.ts               # Использует main-layout
+```
