@@ -1,0 +1,43 @@
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 8px;
+    //width: 20%; /* fixed width */
+}
+
+mat-nav-list {
+    padding-top: 8px;
+}
+
+.active-link {
+    background: rgba(25, 118, 210, 0.12) !important;
+
+    mat-icon {
+        color: #1976d2;
+    }
+
+    span {
+        color: #1976d2;
+        font-weight: 500;
+    }
+}
+
+.menu-badge {
+    background: #f44336;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin-left: auto;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+}
+
+.version-info {
+    padding: 16px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5);
+}

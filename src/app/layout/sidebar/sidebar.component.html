@@ -1,1 +1,43 @@
-<p>sidebar works!</p>
+<div class="sidebar-content">
+    <mat-nav-list>
+        @for (item of menuItems; track item.route) {
+            <a
+                mat-list-item
+                routerLinkActive="active-link"
+                [routerLink]="item.route"
+                [routerLinkActiveOptions]="{ exact: item.route === '/dashboard' }"
+            >
+                <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+                <span matListItemTitle>
+                    {{ item.label }}
+
+                    @if (item.badge) {
+                        <span class="menu-badge">{{ item.badge }}</span>
+                    }
+                </span>
+            </a>
+        }
+    </mat-nav-list>
+
+    <mat-divider></mat-divider>
+
+    <mat-nav-list>
+        @for (item of secondaryItems; track item.route) {
+            <a
+                mat-list-item
+                routerLinkActive="active-link"
+                [routerLink]="item.route"
+            >
+                <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+                <span matListItemTitle>{{ item.label }}</span>
+            </a>
+        }
+    </mat-nav-list>
+
+    <div class="sidebar-footer">
+        <mat-divider></mat-divider>
+        <div class="version-info">
+            <small>Angular Dashboard v1.0.0</small>
+        </div>
+    </div>
+</div>
