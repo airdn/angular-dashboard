@@ -1,20 +1,18 @@
 <app-header (menuToggled)="onMenuToggle()"/>
 
-<div class="sidenav-container">
-    <div class="sidenav">
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+        #sidenav
+        class="sidenav"
+        [mode]="isMobile() ? 'over' : 'side'"
+        [opened]="!isMobile()"
+    >
         <app-sidebar />
-    </div>
-</div>
+    </mat-sidenav>
 
-
-
-<router-outlet />
-
-<!--<div class="app-layout">-->
-<!--    <app-sidebar />-->
-<!--    <div class="main-content">-->
-<!--        <p>dashboard</p>-->
-
-<!--        <router-outlet />-->
-<!--    </div>-->
-<!--</div>-->
+    <mat-sidenav-content class="main-content">
+        <div class="content-wrapper">
+            <router-outlet />
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

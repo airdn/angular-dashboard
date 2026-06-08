@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit, signal, viewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { MatSidenavModule, MatSidenav } from '@angular/material/sidenav';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 import { HeaderComponent } from '../header/header.component';
 import { SidebarComponent } from '../sidebar/sidebar.component';
@@ -11,10 +13,30 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
  */
 @Component({
     selector: 'app-main-layout',
-    imports: [RouterOutlet, HeaderComponent, SidebarComponent],
+    imports: [
+        RouterOutlet,
+        MatSidenavModule,
+        HeaderComponent,
+        SidebarComponent
+    ],
     templateUrl: './main-layout.component.html',
     styleUrl: './main-layout.component.scss'
 })
-export class MainLayoutComponent {
-    public onMenuToggle(): void {}
+export class MainLayoutComponent implements OnInit {
+    private breakpointObserver = inject(BreakpointObserver);
+
+    public isMobile = signal<boolean>(false);
+    public sidenav = viewChild<MatSidenav>('sidenav');
+
+    public ngOnInit() {
+        this.breakpointObserver
+            .observe([Breakpoints.Handset])
+            .subscribe(result => {
+                this.isMobile.set(result.matches);
+            });
+    }
+
+    public onMenuToggle(): void {
+        this.sidenav()?.toggle();
+    }
 }
