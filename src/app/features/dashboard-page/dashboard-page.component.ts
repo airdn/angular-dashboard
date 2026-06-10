@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { ButtonComponent } from '../../shared/ui-components/button/button.component';
-
+/**
+ * Главная страница панели управления.
+ * Объединяет метрики и список панелей.
+ */
 @Component({
     selector: 'app-dashboard-page',
-    imports: [ButtonComponent],
+    imports: [],
     templateUrl: './dashboard-page.component.html',
     styleUrl: './dashboard-page.component.scss'
 })
 export class DashboardPageComponent {
-    public onButtonClick(event: PointerEvent) {
-        console.log(event);
-    }
+    private readonly router = inject(Router);
 }
