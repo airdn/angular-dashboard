@@ -4,7 +4,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 
-import { MenuItem } from '@layout/sidebar';
+export interface MenuItem {
+    label: string;
+    icon: string;
+    route: string;
+    badge?: number;
+}
 
 /**
  * Боковая панель с основной навигацией.
