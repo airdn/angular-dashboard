@@ -32,7 +32,8 @@ export class SidebarComponent {
         { label: 'Panels', icon: 'solar_power', route: '/panels' },
         { label: 'Alerts', icon: 'warning', route: '/alerts', badge: 5 },
         { label: 'Reports', icon: 'assessment', route: '/reports' },
-        { label: 'Map', icon: 'map', route: '/map' }
+        { label: 'Map', icon: 'map', route: '/map' },
+        { label: 'Preview', icon: 'computer', route: '/preview' }
     ];
 
     public secondaryItems: MenuItem[] = [

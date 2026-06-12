@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
 
-import { DashboardPageComponent } from './features/dashboard-page/dashboard-page.component';
-
 export const routes: Routes = [
     {
         path: '',
@@ -18,5 +16,11 @@ export const routes: Routes = [
         loadComponent: () => import('./features/dashboard-page/dashboard-page.component')
             .then(m => m.DashboardPageComponent),
         title: 'Dashboard Page'
+    },
+    {
+        path: 'preview',
+        loadComponent: () => import('./shared/preview/preview.component')
+            .then(m => m.PreviewComponent),
+        title: 'Preview Page'
     },
 ];
