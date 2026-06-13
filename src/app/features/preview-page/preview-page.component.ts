@@ -8,12 +8,12 @@ import { MetricCard, MetricCardComponent } from '@shared/ui-components/metric-ca
  * Просмотр превью компонентов
  */
 @Component({
-    selector: 'app-preview',
+    selector: 'app-preview-page',
     imports: [LoadingSpinnerComponent, ErrorMessageComponent, MetricCardComponent],
-    templateUrl: './preview.component.html',
-    styleUrl: './preview.component.scss'
+    templateUrl: './preview-page.component.html',
+    styleUrl: './preview-page.component.scss'
 })
-export class PreviewComponent {
+export class PreviewPageComponent {
     public metric: MetricCard = {
         label: 'test-label',
         value: 100,

@@ -19,8 +19,8 @@ export const routes: Routes = [
     },
     {
         path: 'preview',
-        loadComponent: () => import('./shared/preview/preview.component')
-            .then(m => m.PreviewComponent),
+        loadComponent: () => import('./features/preview-page/preview-page.component')
+            .then(m => m.PreviewPageComponent),
         title: 'Preview Page'
     },
 ];
