@@ -2,10 +2,10 @@ import { Component, input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 
-import { MetricCard, MetricTrend } from '@features/metrics/metric-card';
+import { MetricCard, MetricTrend } from '@shared/ui-components/metric-card';
 
 /**
- * Простой компонент для отображения одной метрики.
+ * Переиспользуемый компонент для отображения одной метрики.
  * Он получает данные и отображает их визуально.
  */
 @Component({

@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-export type LoadingSpinnerColorType = 'primary' | 'accent' | 'warn';
+export type LoadingSpinnerColor = 'primary' | 'accent' | 'warn';
 
 /**
  * Переиспользуемый компонент индикатора загрузки.
@@ -15,7 +15,7 @@ export type LoadingSpinnerColorType = 'primary' | 'accent' | 'warn';
 })
 export class LoadingSpinnerComponent {
     public diameter = input<number>(40);
-    public color = input<LoadingSpinnerColorType>('primary');
+    public color = input<LoadingSpinnerColor>('primary');
 
     public message = input<string>('');
     public overlay = input<boolean>(false);

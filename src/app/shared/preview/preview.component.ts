@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { LoadingSpinnerComponent } from '@shared/ui-components/loading-spinner';
 import { ErrorMessageComponent } from '@shared/ui-components/error-message';
-import { MetricCard, MetricCardComponent } from '@features/metrics/metric-card';
+import { MetricCard, MetricCardComponent } from '@shared/ui-components/metric-card';
 
 /**
  * Просмотр превью компонентов
