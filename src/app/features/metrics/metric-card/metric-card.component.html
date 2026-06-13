@@ -1,0 +1,23 @@
+<mat-card class="metric-card" [class]="'color-' + metric().color">
+    <div class="metric-content">
+        <div class="metric-icon">
+            <mat-icon>{{ metric().icon }}</mat-icon>
+        </div>
+
+        <div class="metric-data">
+            <span class="metric-label">{{ metric().label }}</span>
+
+            <div class="metric-value-row">
+                <span class="metric-value">{{ formatValue(metric().value) }}</span>
+                <span class="metric-unit">{{ metric().unit }}</span>
+            </div>
+
+            @if (metric().trend; as trend) {
+                <div class="metric-trend" [class]="'trend-' + trend.direction">
+                    <mat-icon>{{ getTrendIcon(trend) }}</mat-icon>
+                    <span>{{ trend.percentage }}% {{ trend.period }}</span>
+                </div>
+            }
+        </div>
+    </div>
+</mat-card>

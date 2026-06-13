@@ -1,0 +1,106 @@
+.metric-card {
+    height: 100%;
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.metric-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 8px;
+}
+
+.metric-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    flex-shrink: 0;
+
+    mat-icon {
+        font-size: 28px;
+        width: 28px;
+        height: 28px;
+    }
+}
+
+.color-primary .metric-icon {
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    color: white;
+}
+
+.color-accent .metric-icon {
+    background: linear-gradient(135deg, #ff4081, #f48fb1);
+    color: white;
+}
+
+.color-warn .metric-icon {
+    background: linear-gradient(135deg, #f44336, #e57373);
+    color: white;
+}
+
+.color-success .metric-icon {
+    background: linear-gradient(135deg, #4caf50, #81c784);
+    color: white;
+}
+
+.metric-data {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.metric-label {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.metric-value-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.metric-value {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+}
+
+.metric-unit {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.metric-trend {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+
+    mat-icon {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+    }
+
+    &.trend-up {
+        color: #4caf50;
+    }
+
+    &.trend-down {
+        color: #f44336;
+    }
+
+    &.trend-stable {
+        color: rgba(0, 0, 0, 0.5);
+    }
+}
