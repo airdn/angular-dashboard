@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { catchError, map, Observable, shareReplay, throwError } from 'rxjs';
 
 import { MockMetricsService } from '@features/smart-components/metrics/services/mock-metrics.service';
+import { HttpMetricsService } from '@features/smart-components/metrics/services/http-metrics.service';
 import { Alert, DashboardMetrics, EnergyData } from '@features/smart-components/metrics/services/metrics.types';
 import { MetricCard } from '@shared/ui-components/metric-card';
 
