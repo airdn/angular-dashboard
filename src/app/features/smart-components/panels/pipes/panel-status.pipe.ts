@@ -38,7 +38,7 @@ export class PanelStatusClassPipe implements PipeTransform {
         warning: 'status-warning'
     };
 
-    transform(status: PanelStatus): string {
+    public transform(status: PanelStatus): string {
         return this.classMap[status] ?? 'status-unknown';
     }
 }
@@ -58,7 +58,7 @@ export class PanelStatusColorPipe implements PipeTransform {
         warning: 'warn'
     };
 
-    transform(status: PanelStatus): 'primary' | 'accent' | 'warn' {
+    public transform(status: PanelStatus): 'primary' | 'accent' | 'warn' {
         return this.colorMap[status] ?? 'primary';
     }
 }

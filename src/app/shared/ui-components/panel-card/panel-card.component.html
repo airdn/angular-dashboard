@@ -1,0 +1,48 @@
+<mat-card class="panel-card" [class.inactive]="panel().status === 'inactive'">
+    <mat-card-header>
+        <mat-icon mat-card-avatar class="panel-icon">solar_power</mat-icon>
+        <mat-card-title>{{ panel().name }}</mat-card-title>
+        <mat-card-subtitle>{{ panel().location.address }}, {{ panel().location.city }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="panel-info">
+            <app-panel-status-badge [status]="panel().status" />
+
+            <div class="metrics">
+                <div class="metric">
+                    <span class="metric-label">Production</span>
+                    <span class="metric-value">{{ panel().currentProduction }}</span>
+                    <span class="metric-value">{{ panel().currentProduction | energyUnit }}</span>
+                </div>
+
+                <div class="metric">
+                    <span class="metric-label">Efficiency</span>
+                    <span class="metric-value" [class.low-efficiency]="panel().efficiency < 70">
+                        {{ panel().efficiency }}
+                        {{ panel().efficiency | percentage }}
+                    </span>
+                </div>
+            </div>
+
+            @if (panel().efficiency < 70 && panel().status === 'active') {
+                <div class="warning-badge">
+                    <mat-icon>warning</mat-icon>
+                    Low efficiency
+                </div>
+            }
+        </div>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+        <button
+            mat-button
+            color="primary"
+            matTooltip="View detailed information"
+            (click)="viewDetails.emit(panel().id)"
+        >
+            <mat-icon>visibility</mat-icon>
+            View details
+        </button>
+    </mat-card-actions>
+</mat-card>
