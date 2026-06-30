@@ -3,13 +3,14 @@ import { Component } from '@angular/core';
 import { LoadingSpinnerComponent } from '@shared/ui-components/loading-spinner';
 import { ErrorMessageComponent } from '@shared/ui-components/error-message';
 import { MetricCard, MetricCardComponent } from '@shared/ui-components/metric-card';
+import { PanelStatusBadgeComponent } from '@shared/ui-components/panel-status-badge/panel-status-badge.component';
 
 /**
  * Просмотр превью компонентов
  */
 @Component({
     selector: 'app-preview-page',
-    imports: [LoadingSpinnerComponent, ErrorMessageComponent, MetricCardComponent],
+    imports: [LoadingSpinnerComponent, ErrorMessageComponent, MetricCardComponent, PanelStatusBadgeComponent],
     templateUrl: './preview-page.component.html',
     styleUrl: './preview-page.component.scss'
 })
