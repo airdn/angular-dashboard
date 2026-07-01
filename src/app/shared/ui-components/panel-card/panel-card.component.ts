@@ -33,4 +33,8 @@ export class PanelCardComponent {
 
     // Angular 19+: функция output() вместо @Output EventEmitter
     public viewDetails = output<string>();
+
+    public onClick(): void {
+        this.viewDetails.emit(this.panel().id);
+    }
 }

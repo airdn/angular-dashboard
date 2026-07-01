@@ -1,1 +1,59 @@
-<p>panel-list works!</p>
+<div class="panel-list-container">
+    <div class="filters">
+        <mat-form-field appearance="outline">
+            <mat-label>Search panels</mat-label>
+            <input
+                matInput
+                placeholder="Name, city..."
+                [ngModel]="searchTerm()"
+                (ngModelChange)="searchTerm.set($event)"
+            >
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>State</mat-label>
+            <mat-select [ngModel]="statusFilter()" (ngModelChange)="statusFilter.set($event)">
+                <mat-option value="">All</mat-option>
+                <mat-option value="active">Active</mat-option>
+                <mat-option value="maintenance">In service</mat-option>
+                <mat-option value="inactive">Inactive</mat-option>
+                <mat-option value="warning">With a warning</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    @if (panels() === undefined) {
+        <app-loading-spinner message="Loading panels..." />
+    } @else if (error()) {
+        <app-error-message
+            [title]="'Loading error'"
+            [message]="error()!"
+            (retry)="loadPanels()"
+        />
+    } @else {
+        <div class="panels-grid">
+            @for (panel of filteredPanels(); track panel.id) {
+                <app-panel-card
+                    [panel]="panel"
+                    (viewDetails)="onViewDetails($event)"
+                />
+            } @empty {
+                <div class="empty-state">
+                    <mat-icon>solar_power</mat-icon>
+                    <p>No panels found</p>
+
+                    @if (searchTerm() || statusFilter()) {
+                        <button mat-button color="primary" (click)="clearFilters()">
+                            Clear filters
+                        </button>
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="panel-count">
+            Showing {{ filteredPanels().length }} of {{ panels()?.length ?? 0 }} panels
+        </div>
+    }
+</div>
