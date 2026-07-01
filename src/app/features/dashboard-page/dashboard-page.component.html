@@ -11,6 +11,6 @@
 
     <section class="panels-section">
         <h2>Solar panels</h2>
-        <app-panel-list />
+        <app-panel-list (panelSelected)="onPanelSelected($event)" />
     </section>
 </div>
